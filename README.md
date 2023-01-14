@@ -1,5 +1,6 @@
 # Landslide-Analysis
 
+A WIP analysis. Data + analysis will be included soon.
 
 Credibility to data used in this analysis (CSV file included under the 'data' folder):
 
