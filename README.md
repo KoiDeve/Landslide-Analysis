@@ -2,7 +2,7 @@
 
 This analysis was created to understand the current events that revolve around landslides triggered by rainfalls around the world. NASA's Open Data Portal provides an export of a Global Landslide Catalog (GLC), which provides information about landslides that have occurred, as well as the sources and locations of said incidents. Most of the landslides provided occurred from the years of 2007 - 2017.
 
-Although the API for the site did provide a csv file, the contents of the file seemed inefficient for the analysis. Upon further inspection, there were no reports made on landslides above approximately 4 **degrees** latitude when performing an API request. However, the export option did provide a csv file whose contents did contain additional information about events that were not listed in the API request. Regardless, the data is provided as well in this repo, with the credibility of the databases listed at the bottom of this README.md file.
+Please note that when interacting with the original source (the link at the bottom of this file), an API request will provide less data than the export option. To clarify, the original API request only provided sources under the 5 degree latitudinal measurement, where as the export included incidents both above and below said line. Regardless, the export version of this data is provided as well in this repo, with the credibility of the databases listed at the bottom of this README.md file.
 
 
 
