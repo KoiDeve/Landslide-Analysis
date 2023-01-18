@@ -60,14 +60,12 @@ class Landslide:
     def source_dates(self):
         plt.figure(figsize = (11, 8))
         self.findYear = lambda x: x.split(' ')[0].split('/')[-1]
-#         self.temp = self.data.event_date.apply(self.year)
-#         print(self.temp)
         self.yearsList = self.data.event_date.apply(self.findYear).reset_index(drop=True)
-        print(self.yearsList.head())
-#         print(type(self.yearsList.unique()))
-#         print(np.sort(self.yearsList.unique()))
-#         self.yearsList.columns = []
-        plt.bar(self.yearsList.unique(), self.yearsList.value_counts())
+        self.yearsList[self.yearsList > '2005'].value_counts().sort_index().plot(kind = 'bar', color=(0,0.8,0.8))
+        plt.title('Highest Reporting Years', **self.titleFormat)
+        plt.xlabel('Year', **self.labelFormatOut)
+        plt.ylabel('Number of Reports', **self.labelFormatOut)
+        plt.xticks(fontsize=12, rotation=30)
         plt.show()
                                                                                                                                    
 lab = Landslide('Global_Landslide_Catalog_Export.csv', 'world_image_adjusted.PNG')
