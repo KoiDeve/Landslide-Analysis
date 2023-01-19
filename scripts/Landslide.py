@@ -57,19 +57,23 @@ class Landslide:
         plt.show()
         
     # Creates a visualization for the date occurrences of all the landslides
-    def source_dates(self):
+    def source_dates(self, after='1960'):
         plt.figure(figsize = (11, 8))
         self.findYear = lambda x: x.split(' ')[0].split('/')[-1]
         self.yearsList = self.data.event_date.apply(self.findYear).reset_index(drop=True)
-        self.yearsList[self.yearsList > '2005'].value_counts().sort_index().plot(kind = 'bar', color=(0,0.8,0.8))
-        plt.title('Highest Reporting Years', **self.titleFormat)
+        self.yearsList[self.yearsList >= after].value_counts().sort_index().plot(kind = 'bar', color=(0,0.8,0.8))
+        plt.title('Top Reporting Years', **self.titleFormat)
         plt.xlabel('Year', **self.labelFormatOut)
         plt.ylabel('Number of Reports', **self.labelFormatOut)
         plt.xticks(fontsize=12, rotation=30)
+        ax = plt.subplot()
+        ax.set_axisbelow(True)
+        ax.yaxis.grid(color='gray', linestyle='dashed')
+        plt.ylim(0, 1600)
         plt.show()
                                                                                                                                    
 lab = Landslide('Global_Landslide_Catalog_Export.csv', 'world_image_adjusted.PNG')
 # lab.map_illustrate('all')
 # lab.top_x_sources(20)
-lab.source_dates()
+lab.source_dates('2007')
 
