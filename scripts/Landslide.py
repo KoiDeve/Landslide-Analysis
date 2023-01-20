@@ -54,6 +54,9 @@ class Landslide:
         plt.title('Top {} Reporting Countries'.format(x), **self.titleFormat)
         plt.xlabel('Amount of Reports', **self.labelFormatOut)
         plt.ylabel('Country', **self.labelFormatOut)
+        ax = plt.subplot()
+        ax.set_axisbelow(True)
+        ax.xaxis.grid(color='gray',linestyle='dashed')
         plt.show()
         
     # Creates a visualization for the date occurrences of all the landslides
@@ -74,6 +77,6 @@ class Landslide:
                                                                                                                                    
 lab = Landslide('Global_Landslide_Catalog_Export.csv', 'world_image_adjusted.PNG')
 # lab.map_illustrate('all')
-# lab.top_x_sources(20)
-lab.source_dates('2007')
+lab.top_x_sources(20)
+# lab.source_dates('2007')
 
